@@ -9,6 +9,9 @@ export default function App() {
   return (
     <>
       <Navbar />
+      <Switch>
+        <Route path="/" component={HomePage} />
+      </Switch>
       <HomePage />
       <Footer/>
     </>
