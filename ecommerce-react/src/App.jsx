@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {Switch, Route, Link} from 'wouter';
+import { Switch, Route, Link } from 'wouter';
 import './styles.css';
 import Navbar from "./Components/Navbar.jsx"
 import HomePage from './Pages/HomePage.jsx';
@@ -14,10 +14,10 @@ export default function App() {
       <Navbar />
       <Switch>
         <Route path="/" component={HomePage} />
-        <Route path="/products" component={ProductsPage}/>
-        <Route path="/register" component={RegisterPage}/>
+        <Route path="/products" component={ProductsPage} />
+        <Route path="/register" component={RegisterPage} />
       </Switch>
-      <Footer/>
+      <Footer />
     </>
   )
 }
