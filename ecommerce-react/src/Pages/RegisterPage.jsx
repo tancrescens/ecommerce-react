@@ -1,7 +1,21 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
+import * as Yup from 'yup';
+
 
 export default function RegisterPage() {
+
+  const validationSchema = Yup.object({
+    name: Yup.string().required('Name is required'),
+    email: Yup.string().email('Invalid email address').required('Email is required'),
+    password: Yup.string().min(8, 'Password must be at least 8 characters').required('Password is required'),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref('password'), null], 'Passwords must match')
+      .required('Confirm Password is required'),
+    salutation: Yup.string().required('Salutation is required'),
+    country: Yup.string().required('Country is required'),
+  });
+  
   const initialValues = {
     name: '',
     email: '',
@@ -23,6 +37,7 @@ export default function RegisterPage() {
       <h1>Register</h1>
       <Formik
         initialValues={initialValues}
+        validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
         {(formik) => (
@@ -35,6 +50,7 @@ export default function RegisterPage() {
                 id="name"
                 name="name"
               />
+              {formik.errors.name && formik.touched.name ? <div className="text-danger">{formik.errors.name}</div> : null}
             </div>
 
             <div className="mb-3">
@@ -45,6 +61,7 @@ export default function RegisterPage() {
                 id="email"
                 name="email"
               />
+              {formik.errors.email && formik.touched.email ? <div className="text-danger">{formik.errors.email}</div> : null}
             </div>
 
             <div className="mb-3">
@@ -55,6 +72,7 @@ export default function RegisterPage() {
                 id="password"
                 name="password"
               />
+              {formik.errors.password && formik.touched.password ? <div className="text-danger">{formik.errors.password}</div> : null}
             </div>
 
             <div className="mb-3">
@@ -65,6 +83,7 @@ export default function RegisterPage() {
                 id="confirmPassword"
                 name="confirmPassword"
               />
+              {formik.errors.confirmPassword && formik.touched.confirmPassword ? <div className="text-danger">{formik.errors.confirmPassword}</div> : null}
             </div>
 
             <div className="mb-3">
@@ -99,7 +118,8 @@ export default function RegisterPage() {
                     value="Mrs"
                   />
                   <label className="form-check-label" htmlFor="mrs">Mrs</label>
-                </div>
+                  {formik.errors.salutation && formik.touched.salutation ? <div className="text-danger">{formik.errors.salutation}</div> : null}
+              </div>
               </div>
             </div>
 
@@ -128,6 +148,7 @@ export default function RegisterPage() {
                 <label className="form-check-label" htmlFor="smsMarketing">
                   SMS Marketing
                 </label>
+                {formik.errors.marketingPreferences && formik.touched.marketingPreferences ? <div className="text-danger">{formik.errors.marketingPreferences}</div> : null}
               </div>
             </div>
 
@@ -145,6 +166,7 @@ export default function RegisterPage() {
                 <option value="in">Indonesia</option>
                 <option value="th">Thailand</option>
               </Field>
+              {formik.errors.country && formik.touched.country ? <div className="text-danger">{formik.errors.country}</div> : null}
             </div>
 
             <button
