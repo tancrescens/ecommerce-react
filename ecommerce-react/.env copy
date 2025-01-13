@@ -1,0 +1,2 @@
+# Set up a pseudo-backend-server on gitpod here: https://github.com/kunxin-chor/sctp-react-backend
+VITE_API_URL=https://localhost:3000
