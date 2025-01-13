@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import ProductCard from '../Components/ProductCard';
 
 export default function HomePage() {
+  const [featuredProducts, setFeaturedProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchFeaturedProducts = async ()=>{
+      try {
+        let response = await axios.get("/featured.json")
+        setFeaturedProducts(response.data);
+      }
+      catch (error) {
+        console.error('Error fetching featured products:', error);
+      }
+    }
+
+    fetchFeaturedProducts();
+
+  }, []);
+
   return (
     <>
       <header className="bg-primary text-white text-center py-5">
