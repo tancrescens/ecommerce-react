@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
-
+import axios from 'axios';
+import { useLocation } from 'wouter';
 
 export default function RegisterPage() {
+  const [location, setLocation] = useLocation();
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const validationSchema = Yup.object({
     name: Yup.string().required('Name is required'),
@@ -15,7 +18,7 @@ export default function RegisterPage() {
     salutation: Yup.string().required('Salutation is required'),
     country: Yup.string().required('Country is required'),
   });
-  
+
   const initialValues = {
     name: '',
     email: '',
@@ -26,14 +29,23 @@ export default function RegisterPage() {
     country: ''
   };
 
-  const handleSubmit = (values, formikHelpers) => {
-    // Here you would typically make an API call to register the user
-    console.log('Form values:', values);
-    formikHelpers.setSubmitting(false);
+  const handleSubmit = async (values, formikHelpers) => {
+    // api call
+    try {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/register`, values);
+      console.log('Registration successful:', response.data);
+      setLocation("/");
+    } catch (error) {
+      console.error('Registration failed:', error.response?.data || error.message);
+      // Handle registration error (e.g., show error message)
+    } finally {
+      formikHelpers.setSubmitting(false);
+    }
+
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mb-5 mt-5">
       <h1>Register</h1>
       <Formik
         initialValues={initialValues}
@@ -119,7 +131,7 @@ export default function RegisterPage() {
                   />
                   <label className="form-check-label" htmlFor="mrs">Mrs</label>
                   {formik.errors.salutation && formik.touched.salutation ? <div className="text-danger">{formik.errors.salutation}</div> : null}
-              </div>
+                </div>
               </div>
             </div>
 
