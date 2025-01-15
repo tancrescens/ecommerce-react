@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { Link, useLocation } from "wouter";
 
 export default function Navbar() {
-    const [isNavbarShowing, setNavbarShowing] = useState(false);
+    const [showNavbar, setShowNavbar] = useState(false);
     // returns the current URL
     const [location] = useLocation();
     
     // Toggle the collapse state
     const toggleNavbar = () => {
-        setNavbarShowing(!isNavbarShowing);
+        setShowNavbar(!showNavbar);
     };
 
     return (<>
@@ -22,7 +22,7 @@ export default function Navbar() {
                 >
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className={`collapse navbar-collapse ${isNavbarShowing ? "show" : ""}`}
+                <div className={`collapse navbar-collapse ${showNavbar ? "show" : ""}`}
                     id="navbarNav">
                     <ul className="navbar-nav ms-auto">
                         <li className="nav-item">
