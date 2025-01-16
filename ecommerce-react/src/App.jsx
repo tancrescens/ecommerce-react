@@ -6,6 +6,7 @@ import HomePage from './Pages/HomePage.jsx';
 import Footer from './Components/Footer.jsx'
 import ProductsPage from './Pages/ProductPage.jsx';
 import RegisterPage from './Pages/RegisterPage.jsx';
+import ShoppingCartPage from './Pages/ShoppingCartPage.jsx';
 import { useFlashMessage } from "./FlashMessageStore.js";
 
 export default function App() {
@@ -36,6 +37,7 @@ export default function App() {
         <Route path="/" component={HomePage} />
         <Route path="/products" component={ProductsPage} />
         <Route path="/register" component={RegisterPage} />
+        <Route path="/shoppingCart" component={ShoppingCartPage} />
       </Switch>
       <Footer />
     </>

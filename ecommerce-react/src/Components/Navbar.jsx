@@ -5,7 +5,7 @@ export default function Navbar() {
     const [showNavbar, setShowNavbar] = useState(false);
     // returns the current URL
     const [location] = useLocation();
-    
+
     // Toggle the collapse state
     const toggleNavbar = () => {
         setShowNavbar(!showNavbar);
@@ -26,13 +26,16 @@ export default function Navbar() {
                     id="navbarNav">
                     <ul className="navbar-nav ms-auto">
                         <li className="nav-item">
-                        <Link href="/" className={`nav-link ${location === '/' ? 'active' : ''}`}>Home</Link>
+                            <Link href="/" className={`nav-link ${location === '/' ? 'active' : ''}`}>Home</Link>
                         </li>
                         <li className="nav-item">
                             <Link href="/products" className={`nav-link ${location === '/products' ? 'active' : ''}`}>Products</Link>
                         </li>
                         <li className="nav-item">
                             <Link href="/register" className={`nav-link ${location === '/register' ? 'active' : ''}`}>Register</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link href="/shoppingCart" className={`nav-link ${location === '/shoppingCart' ? 'active' : ''}`}>Cart</Link>
                         </li>
                     </ul>
                 </div>
