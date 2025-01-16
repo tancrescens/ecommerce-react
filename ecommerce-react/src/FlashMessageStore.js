@@ -8,7 +8,6 @@ export const flashMessageAtom = atom({
 export const useFlashMessage = () => {
     const [flashMessage, setFlashMessage] = useAtom(flashMessageAtom);
     
-
     const showMessage = (message, type = 'info') => {
         setFlashMessage({ message, type });
     };
