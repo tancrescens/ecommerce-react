@@ -1,7 +1,7 @@
 import React from 'react';
-import { useCart } from './CartStore';
+import { useCart } from '../CartStore';
 
-const ShoppingCart = () => {
+const ShoppingCartPage = () => {
   const { cart, getCartTotal } = useCart();
 
   return (
@@ -31,4 +31,4 @@ const ShoppingCart = () => {
   );
 };
 
-export default ShoppingCart;
+export default ShoppingCartPage;
