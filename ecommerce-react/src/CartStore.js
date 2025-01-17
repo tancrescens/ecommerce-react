@@ -55,10 +55,17 @@ export const useCart = () => {
     });
   }
 
+  const removeFromCart = (product_id) => {
+    setCart((currentCart) => {
+      return currentCart.filter(item => item.product_id !== product_id);
+    });
+  }
+
   return {
     cart,
     addToCart,
     modifyQuantity,
+    removeFromCart,
     getCartTotal,
   };
 };
