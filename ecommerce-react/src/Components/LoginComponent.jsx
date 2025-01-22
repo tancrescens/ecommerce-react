@@ -9,7 +9,7 @@ import { useJwt } from '../UserStore';
 function UserLogin() {
   const [, setLocation] = useLocation();
   const { showMessage } = useFlashMessage();
-  const { setJwt} = useJwt();
+  const { setJwt } = useJwt();
 
   const initialValues = {
     email: '',
@@ -31,7 +31,7 @@ function UserLogin() {
       setLocation('/');
     } catch (error) {
       console.error('Login error:', error);
-      actions.setErrors({ submit: error.response.data.message });      
+      actions.setErrors({ submit: error.response.data.message });
       actions.setSubmitting(false);
     }
   };
@@ -44,7 +44,7 @@ function UserLogin() {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {function(formik) {
+        {function (formik) {
           return (
             <Form>
               <div className="mb-3">
