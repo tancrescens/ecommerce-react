@@ -73,6 +73,9 @@ function ProductsPage() {
               price={product.price.toFixed(2)}
               description={product.description}
               category={product.category}
+              onAddToCart={() => {
+                handleAddToCart(p)
+              }}
             />
           </div>
         ))}

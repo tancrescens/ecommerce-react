@@ -16,6 +16,9 @@ const ShoppingCartPage = () => {
               <li key={item.id} className="list-group-item d-flex justify-content-between align-items-center">
                 <div>
                   <h5>{item.productName}</h5>
+                  <p className="container p-0">
+                    <img src={item.imageUrl}></img>
+                  </p>
                   <div className="d-flex align-items-center">
                     <button className="btn btn-sm btn-secondary me-2" onClick={() => modifyQuantity(item.product_id, item.quantity - 1)}>-</button>
                     <p className="mb-0">Quantity: {item.quantity}</p>

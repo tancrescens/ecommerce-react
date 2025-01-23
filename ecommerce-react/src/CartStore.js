@@ -1,17 +1,17 @@
 import { atom, useAtom } from "jotai";
 import Immutable from "seamless-immutable";
 
-let initialCart = Immutable(
-  [{
-    "id": 1,
-    "product_id": 1,
-    "quantity": 10,
-    "productName": "Organic Green Tea",
-    "price": 12.99,
-    "imageUrl": "https://picsum.photos/id/225/300/200",
-    "description": "Premium organic green tea leaves, rich in antioxidants and offering a smooth, refreshing taste."
-  }]
-);
+let initialCart = Immutable([]);
+  // [{
+  //   "id": null,
+  //   "product_id": null,
+  //   "quantity": null,
+  //   "productName": null,
+  //   "price": null,
+  //   "imageUrl": null,
+  //   "description": null
+  // }]
+// );
 
 // Create an atom for the cart
 export const cartAtom = atom(initialCart);
