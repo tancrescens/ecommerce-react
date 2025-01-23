@@ -9,7 +9,7 @@ import ProductsPage from './Pages/ProductPage.jsx';
 import RegisterPage from './Pages/RegisterPage.jsx';
 import ShoppingCartPage from './Pages/ShoppingCartPage.jsx';
 import { useFlashMessage } from "./FlashMessageStore.js";
-import UserLogin from './Components/LoginComponent'
+import UserLogin from './Components/UserLogin.jsx'
 import Profile from './Pages/ProfilePage'
 
 export default function App() {
