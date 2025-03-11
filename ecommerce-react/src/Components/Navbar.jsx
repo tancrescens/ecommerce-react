@@ -31,15 +31,19 @@ export default function Navbar() {
                         <li className="nav-item">
                             <Link href="/products" className={`nav-link ${location === '/products' ? 'active' : ''}`}>Products</Link>
                         </li>
+                        {/* Shows if NOT LOGGEDIN */}
                         <li className="nav-item">
                             <Link href="/register" className={`nav-link ${location === '/register' ? 'active' : ''}`}>Register</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link href="/shoppingCart" className={`nav-link ${location === '/shoppingCart' ? 'active' : ''}`}>Cart</Link>
-                        </li>
+                        {/* Shows if NOT LOGGEDIN */}
                         <li className="nav-item">
                             <Link className={`nav-link ${location === '/login' ? 'active' : ''}`} href="/login">Login</Link>
                         </li>
+                        {/* Shows if LOGGEDIN */}
+                        <li className="nav-item">
+                            <Link href="/shoppingCart" className={`nav-link ${location === '/shoppingCart' ? 'active' : ''}`}>Cart</Link>
+                        </li>
+                        {/* Shows if LOGGEDIN */}
                         <li className="nav-item">
                             <Link className={`nav-link ${location === '/profile' ? 'active' : ''}`} href="/profile">Profile</Link>
                         </li>
